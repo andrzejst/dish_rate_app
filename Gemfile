@@ -30,6 +30,10 @@ gem 'spring',        group: :development
 #formtastic
 gem 'formtastic', '~> 1.2.0'
 
+#bcrypt
+gem 'bcrypt-ruby'
+
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

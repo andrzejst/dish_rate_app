@@ -1,0 +1,2 @@
+module DishRatingCommentsHelper
+end

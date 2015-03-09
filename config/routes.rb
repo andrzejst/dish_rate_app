@@ -1,4 +1,24 @@
 Rails.application.routes.draw do
+  resources :users
+
+  resources :post_comments
+
+  resources :dish_rating_comments
+
+  resources :restaurant_rating_comments
+
+  resources :restaurant_ratings
+
+  resources :dish_ratings
+
+  resources :posts
+
+  resources :images
+
+  resources :dishes
+
+  resources :menus
+
   resources :restaurants
 
   # The priority is based upon order of creation: first created -> highest priority.
