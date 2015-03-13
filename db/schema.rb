@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150309143533) do
+ActiveRecord::Schema.define(version: 20150313092638) do
 
   create_table "dish_rating_comments", force: true do |t|
     t.text     "content"
@@ -105,6 +105,7 @@ ActiveRecord::Schema.define(version: 20150309143533) do
     t.string   "first_name"
     t.string   "last_name"
     t.string   "hashed_pass"
+    t.string   "email"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
