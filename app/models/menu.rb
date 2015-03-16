@@ -1,4 +1,4 @@
 class Menu < ActiveRecord::Base
-  validates :is_active, :presense => true
-  validates :restaurant_id, :presense => true
+  validates :is_active, :presence => true
+  validates :restaurant_id, :presence => true
 end

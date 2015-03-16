@@ -1,7 +1,7 @@
 class Dish < ActiveRecord::Base
-  validates :name, :presense => true
-  validates :description, :presense => true
-  validates :category, :presense => true
-  validates :image_id, :presense => true
-  validates :menu_id, :presense => true 
+  validates :name, :presence => true
+  validates :description, :presence => true
+  validates :category, :presence => true
+  validates :image_id, :presence => true
+  validates :menu_id, :presence => true 
 end

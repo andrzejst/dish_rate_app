@@ -1,7 +1,7 @@
 class Post < ActiveRecord::Base
-  validates :title, :presense => true
-  validates :content, :presense => true
-  validates :user_id, :presense => true
-  validates :image_id, :presense => true
-  validates :rating_id, :presense => true  
+  validates :title, :presence => true
+  validates :content, :presence => true
+  validates :user_id, :presence => true
+  validates :image_id, :presence => true
+  validates :rating_id, :presence => true  
 end

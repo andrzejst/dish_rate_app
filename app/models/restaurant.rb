@@ -1,10 +1,10 @@
 class Restaurant < ActiveRecord::Base
-  validates :name, :presense => true
-  validates :description, :presense => true
-  validates :address, :presense => true
-  validates :location, :presense => true
-  validates :gps_lat, :presense => true
-  validates :gps_lon, :presense => true
-  validates :category, :presense => true
-  validates :image_id, :presense => true
+  validates :name, :presence => true
+  validates :description, :presence => true
+  validates :address, :presence => true
+  validates :location, :presence => true
+  validates :gps_lat, :presence => true
+  validates :gps_lon, :presence => true
+  validates :category, :presence => true
+  validates :image_id, :presence => true
 end
