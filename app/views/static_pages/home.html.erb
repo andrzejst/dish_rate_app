@@ -1,178 +1,113 @@
+<div class="" style="border: 0px solid red; text-align: left;">
+  <div style="border: 0px solid blue"><!-- dish details-->
+      <div id="left_column" class="left clear_left" style="">
+                 <div>
+                  <span id="title" class="left">Dish of the week</span> 
+                </div>
+      <img class="" src="images/se_beef.jpg" width="100%" height="" title="" alt=""/>
+  </div>
+    <div id="right_column" class="right clear_right" style="">
 
-<div class="" style="border: 1px solid red">
-
-  <div id="left_column" class="left clear_left" style="border: 2px solid green; width: 48%;">
-    <div>
-      left column
-      </br>
-      Dish of the week
-      <br/>
-      <br/>
-        Dish details page 
-  Dish details page
-  Dish details page
-  Dish details page
-  Dish details page
-  Dish details page
-  Dish details page
-  Dish details page
-  Dish details page
-  Dish details page
-  Dish details pageDish details page
-      
- </div>
-</div>
+                <div>
+                  <span id="dish_name" class="">Hot garlic beef</span>
+                </div>
+                <div>
+                  <span id="dish_rating" class="">Dish rating: &nbsp;<img class="" src="images/rating_5.PNG" width="" height="" title="" alt=""/></span>
+                </div>
+                <div id="description" class="clear_both description">              
+                  This is a delicious stir fry with tender strips of beef, sweet fresh veggies and a spicy garlic sauce. Marinated before cooking to add an extra layer of flavour.
+          </div>
 
 
-<div id="right_column" class="right clear_right" style="border: 2px solid blue; width: 48%;">
-          <div>
-            right column
-            <br/>
-      description description description description description description description description 
-            description description description description description description description description description 
-            description description description description description description description description 
-      </div>
-    
+    </div>
+  <div class="clear_both">&nbsp;</div>
+  </div> <!-- dish details -->
+  <hr/>
+<div style="border: 0px solid green"><!-- dish posts-->
+      <div id="left_column" class="left clear_left" style="">
+        <img class="" src="images/beef_post.jpg" width="100%" height="" title="" alt=""/>
+    </div>
+      <div id="right_column" class="right clear_right" style="">
+            <div>
+                <div class="dish_rating">
+                  <span id="" class="left">Derek</span>                  
+                  <span id="" class="right">10/03/2015 19:14</span>
+                </div>
+                <div  class="clear_both dish_rating" id="" >Rating: &nbsp;<img class="" src="images/rating_5.PNG" width="" height="20px" title="" alt=""/></div>
+                <div class="clear_both post">              
+                  This is the best beef dish in the menu. Meat is very tender and spicy.
+                  </div>
+              <div class="clear_both right">                   
+                  <a href="" onclick="display_comment_form()">Add comment</a>
+                </div> <!-- add comment --> 
+                <!-- add new comment div-->  
+                <div class="clear_both" id="new_comment" style="">
+                      <form action="">
+                            Comment:<br>
+                            <textarea name="message" rows="10" cols="30">
+
+                            </textarea>
+
+                            <br><br>
+                            <input class="" type="submit" value="Save">
+                      </form>
+                    </div>
+                
+                
+              </div> <!-- post end -->
+        <!-- existing comment(s) here-->
+        <div class="clear_both" style="border: 1px solid grey; padding: 1em; margin-top: 2em; margin-left: 1em; background-color:#FFE6E6;">
+              <div class="dish_rating">
+                  <span class="left">Tom</span>                  
+                  <span class="right">11/03/2015 18:46</span>
+                </div>
+                <div class="clear_both comment" >              
+                   Agree. very nice dish...
+                 </div>
+        </div>
+        <div class="clear_both" style="border: 1px solid grey; padding: 1em; margin-top: 2em; margin-left: 1em; background-color:#FFE6E6;">
+              <div class="dish_rating">
+                  <span class="left">Mark</span>                  
+                  <span class="right">12/03/2015 20:21</span>
+                </div>
+                <div class="clear_both comment" >              
+                   I didn't like it...
+                 </div>
+        </div>
+        
+        
+      </div> <!-- right column end --> 
   
-</div>
-<div class="clear_both">&nbsp;</div>  
+    <div class="clear_both">&nbsp;</div>
+  
+</div> <!-- dish posts -->  
+  <hr/>
+<div class="clear_both right" style="margin: 5px 6% 5px 2%;  padding: 1%;  border: 0px solid blue;">
+  
+     <a href="">Add image</a>
+  
+  
+</div> <!-- add image -->
+  
+  <!-- add new post div-->  
+                <div class="clear_both right" id="new_post" style="">
+                      <form action="">
+                            Content:<br>
+                            <textarea name="message" rows="10" cols="30">
+                            </textarea>
+                            <br/>
+                            Picture:<input type="text" name="pic"><input class="" type="submit" value="browse">
+                            <br/><br/>
+                            
+                            <input class="" type="submit" value="Save">
+                            <input class="" type="submit" value="Cancel">
+                      </form>
+                    </div>
+  
+  
+    
+
 </div>
 
-<!--
-<p>Find me in app/views/static_pages/home.html.erb</p>
-<div id="main_container" class="" style="border: 1px solid red">
-  main
-  <div id="header" style="border: 1px solid blue">header</div>
-  <div id="menu_bar" style="border: 1px solid green">manu bar</div>
-  <div id="left_col" style="border: 1px solid green; float: left;">left column</div>
-  <div id="right_col" style="border: 1px solid yellow; float: right;">right column</div>
-  <div id="footer" style="border: 1px solid blue; clear: both;">footer</div>
-</div>
--->
 
-<!--
-<section id="content">
-   	<div class="zerogrid">
-       <div class="block-1">
-	   	<div class="col-1-4">
-	       	<div class="pad border-right">
-	        	<div class="block-1-title">
-	            	<span>01.</span>
-	                <div class="text-1">Best<strong>cuisine</strong></div>
-	                <strong class="clear"></strong>
-	            </div>
-	            <p class="border-1">This website template has several pages:  Restaurant, Cuisine, Wine List, CookBook, Gallery, Contacts (note that contact us form - doesn't work).</p>
-	            <a href="#" class="link-1">read more</a>
-	        </div>
-		</div>
-		<div class="col-1-4">
-	        <div class="pad border-right">
-	        	<div class="block-1-title">
-	            	<span>02.</span>
-	                <div class="text-2">Good<strong>rest</strong></div>
-	                <strong class="clear"></strong>
-	            </div>
-	            <p class="border-1">Cras mattis tempor eros nec tristique. Sed sed felis arcu, vel vehicula augue. Maecenas faucibus sagittis cursus. Fusce tincidunt, tellus eget tristique cursus.</p>
-	            <a href="#" class="link-1">read more</a>
-	        </div>
-		</div>
-		<div class="col-1-4">
-	        <div class="pad border-right">
-	        	<div class="block-1-title">
-	            	<span>03.</span>
-	                <div class="text-3">Great<strong>service</strong></div>
-	                <strong class="clear"></strong>
-	            </div>
-	            <p class="border-1">Maecenas faucibus sagittis cursus. Fusce tincidunt, tellus eget tristique cursus, orci mi iaculis. sem, sit amet dictum velit velit eu magna. 
-	Nunc viverra nisi sed orci.</p>
-	            <a href="#" class="link-1">read more</a>
-	        </div>
-		</div>
-		<div class="col-1-4">
-	        <div class="pad">
-	        	<div class="block-1-title">
-	            	<span>04.</span>
-	                <div class="text-4">Best<strong>cooks</strong></div>
-	                <strong class="clear"></strong>
-	            </div>
-	            <p class="border-1">Fusce tincidunt, tellus eget tristique cursus, orci mi iaculis. sem, sit amet dictum velit velit eu magna. Nunc viverra nisi sed orci tincidunt at hendrerit orci.</p>
-	            <a href="#" class="link-1">read more</a>
-	        </div>
-		</div>
-       </div>
-       <div class="block-2 pad-1">
-       	<div class="col-2-3">
-			<div class="wrap-col">
-	        	<h2 class="h2-line">We are glad to invite you!<strong>The place where you feel bliss</strong></h2>
-	            <div class="box-1">
-					<div class="col-1-2"><div class="wrap-col">
-	            		<div class="img-border"><img src="images/page1-img1.jpg" alt=""></div>
-					</div></div>
-					<div class="col-1-2"><div class="wrap-col">
-		                <div class="extra-wrap">
-		                	<p class="it-bold p2">Valencia is one of <a href="http://blog.templatemonster.com/free-website-templates/" target="_blank" class="link">free website templates</a> created by TemplateMonster.com team. This website template is optimized for 1280X1024 screen resolution. </p>
-		                    <p class="border-1">The PSD source files of this <a href="http://blog.templatemonster.com/2012/06/18/free-website-template-jquery-slider-restaurant-business/" class="link">Valencia</a><br> template are available for free for the<br> registered members of TemplateMonster.com. Feel free to get them! Vivamus hendrerit<br> mauris ut dui gravida ut viverra lectus <br>incidunt. </p>
-		                    <a href="#" class="link-1">read more</a>  
-		                </div>
-					</div></div>
-	            </div>
-			</div>
-        </div>
-        <div class="col-1-3">
-			<div class="wrap-col">
-	        	<h3 class="h3-line top-1">Testimonials:</h3>
-	            <div class="box-2 top-2">
-	                <div class="comment border-1">
-	                    <p><img src="images/comment-top.png" alt="" ><span class="clr-1">Vivamus hendrerit mauris ut dui</span> gravida ut viverra lectus incidunt. Cras mattis tempor eros nec tristique. Sed sed felis arcu, vel vehicula.<img src="images/comment-bottom.png" alt="" class="second"></p>
-	                    <span class="clr-1"><strong>Tina Smith</strong> <i>(top manager)</i></span>
-	                </div>
-	                <div class="comment border-1 top-3">
-	                    <p><img src="images/comment-top.png" alt="" ><span class="clr-1">Vivamus hendrerit mauris ut dui</span> gravida ut viverra lectus incidunt. Cras mattis tempor eros nec tristique. Sed sed felis arcu, vel vehicula.<img src="images/comment-bottom.png" alt="" class="second"></p>
-	                    <span class="clr-1"><strong>John Green</strong> <i>(director)</i></span>
-	                </div>
-	                <a href="#" class="link-1">read more</a>
-	             </div> 
-			 </div>
-        </div>
-        <div class="clear"></div>
-        <div class="block-3">
-        	<div class="h3">
-       			<h3 class="h3-line-2">Most delicious:</h3>
-            </div>
-            <div class="box-3">
-				<div class="col-1-4">
-	            	<div class="pad">
-	                	<div class="img-border"><img src="images/page1-img2.jpg" alt=""></div>
-	                	<p class="border-2"><span class="it-bold clr-1">Vivamus hendrerit</span><br>mauris ut dui gravida ut rra lectus incidunt. Cras mattis tempor eros nec tristique. </p>
-	                	<a href="#" class="link">read more</a>
-	                </div>
-				</div>
-				<div class="col-1-4">
-	                <div class="pad">
-	                	<div class="img-border"><img src="images/page1-img3.jpg" alt=""></div>
-	                	<p class="border-2"><span class="it-bold clr-1">Cras mattis tempor eros nec </span><br>tristique Sed sed felis arcu, vel vehicula augue maecenas faucibus sagittis.</p>
-	                	<a href="#" class="link">read more</a>
-	                </div>
-				</div>
-				<div class="col-1-4">
-	                <div class="pad">
-	                	<div class="img-border"><img src="images/page1-img4.jpg" alt=""></div>
-	                	<p class="border-2"><span class="it-bold clr-1">Sed sed felis arcu, vel </span><br>vehicula augue  maecenas faucibus sagittis cursus. Fusce tincidunt tellus eget.</p>
-	                	<a href="#" class="link">read more</a>
-	                </div>
-				</div>
-				<div class="col-1-4">
-	                <div class="pad">
-	                	<div class="img-border"><img src="images/page1-img5.jpg" alt=""></div>
-	                	<p class="border-2"><span class="it-bold clr-1">Maecenas faucibus sagittis</span><br>cursus fusce tincidunt, tellus eget tristique cursus orci mi iaculis sem sit amet.</p>
-	                	<a href="#" class="link">read more</a>
-	                </div>
-				</div>
-            </div>
-        </div>
-       </div>
-	  </div>
-    </section>
-
--->
 
