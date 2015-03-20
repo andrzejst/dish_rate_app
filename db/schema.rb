@@ -14,33 +14,33 @@
 ActiveRecord::Schema.define(version: 20150313092638) do
 
   create_table "dish_rating_comments", force: true do |t|
-    t.text     "content"
-    t.integer  "user_id"
-    t.integer  "dish_rating_id"
+    t.text     "content",        null: false
+    t.integer  "user_id",        null: false
+    t.integer  "dish_rating_id", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "dish_ratings", force: true do |t|
-    t.decimal  "rate_value"
-    t.integer  "user_id"
-    t.integer  "dish_id"
+    t.decimal  "rate_value", null: false
+    t.integer  "user_id",    null: false
+    t.integer  "dish_id",    null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "dishes", force: true do |t|
-    t.string   "name"
-    t.text     "description"
-    t.string   "category"
-    t.integer  "image_id"
-    t.integer  "menu_id"
+    t.string   "name",        null: false
+    t.text     "description", null: false
+    t.string   "category",    null: false
+    t.integer  "image_id",    null: false
+    t.integer  "menu_id",     null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "images", force: true do |t|
-    t.string   "name"
+    t.string   "name",          null: false
     t.text     "description"
     t.string   "location_path"
     t.datetime "created_at"
@@ -48,64 +48,64 @@ ActiveRecord::Schema.define(version: 20150313092638) do
   end
 
   create_table "menus", force: true do |t|
-    t.boolean  "is_active"
-    t.integer  "restaurant_id"
+    t.boolean  "is_active",     null: false
+    t.integer  "restaurant_id", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "post_comments", force: true do |t|
-    t.text     "content"
-    t.integer  "user_id"
-    t.integer  "post_id"
+    t.text     "content",    null: false
+    t.integer  "user_id",    null: false
+    t.integer  "post_id",    null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "posts", force: true do |t|
-    t.string   "title"
-    t.text     "content"
-    t.integer  "user_id"
-    t.integer  "image_id"
-    t.integer  "rating_id"
+    t.string   "title",      null: false
+    t.text     "content",    null: false
+    t.integer  "user_id",    null: false
+    t.integer  "image_id",   null: false
+    t.integer  "rating_id",  null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "restaurant_rating_comments", force: true do |t|
-    t.text     "content"
-    t.integer  "user_id"
-    t.integer  "restaurant_rating_id"
+    t.text     "content",              null: false
+    t.integer  "user_id",              null: false
+    t.integer  "restaurant_rating_id", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "restaurant_ratings", force: true do |t|
-    t.decimal  "rate_value"
-    t.integer  "user_id"
-    t.integer  "restaurant_id"
+    t.decimal  "rate_value",    null: false
+    t.integer  "user_id",       null: false
+    t.integer  "restaurant_id", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "restaurants", force: true do |t|
-    t.string   "name"
-    t.text     "description"
-    t.text     "address"
-    t.string   "location"
-    t.decimal  "gps_lat"
-    t.decimal  "gps_lon"
-    t.string   "category"
-    t.integer  "image_id"
+    t.string   "name",        null: false
+    t.text     "description", null: false
+    t.text     "address",     null: false
+    t.string   "location",    null: false
+    t.decimal  "gps_lat",     null: false
+    t.decimal  "gps_lon",     null: false
+    t.string   "category",    null: false
+    t.integer  "image_id",    null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "users", force: true do |t|
-    t.string   "first_name"
-    t.string   "last_name"
+    t.string   "first_name",  null: false
+    t.string   "last_name",   null: false
     t.string   "hashed_pass"
-    t.string   "email"
+    t.string   "email",       null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
