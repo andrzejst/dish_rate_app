@@ -10,6 +10,11 @@ class DishesController < ApplicationController
   # GET /dishes/1
   # GET /dishes/1.json
   def show
+    # additional code for different response types
+    respond_to do |format|
+      format.html   # show.html.erb
+      format.json {render json: @dish}
+    end
   end
 
   # GET /dishes/new
@@ -58,6 +63,7 @@ class DishesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to dishes_url, notice: 'Dish was successfully destroyed.' }
       format.json { head :no_content }
+      format.js  #can respond to javascript
     end
   end
 

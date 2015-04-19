@@ -169,3 +169,32 @@ a:hover {text-decoration: underline;}
 #new_post{
     display: none; 
 }
+
+.dish{
+  border: 2px dashed green;
+  padding: 1em;
+  margin: 1em;
+}
+
+.actions{
+  border: 1px solid black;
+  float: right;
+  color: blue;
+  
+}
+
+.dish_name{
+  margin: 0em 1em;
+  color: #303030;
+  font: bold 1.75em arial, sans-serif;
+  font-family:Arial Black;
+  
+}
+
+.dish_description{
+  margin: 0em 1em;
+  color: #303030;
+  font: normal 1em arial, sans-serif;
+  font-family:Arial Black;
+  
+}
