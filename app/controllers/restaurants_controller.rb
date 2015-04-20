@@ -1,5 +1,6 @@
 class RestaurantsController < ApplicationController
-  
+
+  #actions
   before_action :set_restaurant, only: [:show, :edit, :update, :destroy]
 
   # GET /restaurants
@@ -59,6 +60,7 @@ class RestaurantsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to restaurants_url, notice: 'Restaurant was successfully destroyed.' }
       format.json { head :no_content }
+      format.js  #can respond to javascript
     end
   end
 

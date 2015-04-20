@@ -1,13 +1,12 @@
 <h1 class="left">Listing dishes</h1>
 
 <table style="border: 2px solid blue;">
-  
   <thead>
     <tr style="border: 2px solid green; padding: 2em;">
       <th>Name</th>
       <th>Description</th>
       <th>Category</th>
-      <th>Image</th>
+
       <th>Menu</th>
       <th colspan="3"></th>
     </tr>
@@ -15,19 +14,16 @@
 </table>
 <br/>
 
- 
 <% @dishes.each do |dish| %>
-    <%= div_for dish do %>
- 
+    <%= div_for dish do %> 
         <span class="dish_name left"><%= dish.name %></span>
         <span class="dish_description left"><%= dish.description %></span>
         <span class="dish_category left"><%= dish.category %></span>
-        <span class="image_list list"><%= dish.image_id %></span>
-        <!-- <span><%= dish.menu_id %></span> -->
+
         <div class="actions">
-          <span><%= link_to 'View', dish %></span>
-                <span><%= link_to 'Edit', edit_dish_path(dish) %></span>
-                <span><%= link_to 'Destroy', dish, method: :delete, data: { confirm: 'Are you sure?' },  remote: true %></span> <!-- data: { confirm: 'Are you sure?' },-->
+        <span><%= link_to 'View', dish %></span>
+        <span><%= link_to 'Edit', edit_dish_path(dish) %></span>
+        <span><%= link_to 'Destroy', dish, method: :delete, data: { confirm: 'Are you sure?' },  remote: true %></span> 
         </div>
 
     <% end %>

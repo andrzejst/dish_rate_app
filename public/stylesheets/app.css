@@ -170,7 +170,7 @@ a:hover {text-decoration: underline;}
     display: none; 
 }
 
-.dish{
+.dish, .restaurant{
   border: 2px dashed green;
   padding: 1em;
   margin: 1em;
@@ -183,7 +183,7 @@ a:hover {text-decoration: underline;}
   
 }
 
-.dish_name{
+.dish_name, .restaurant_name{
   margin: 0em 1em;
   color: #303030;
   font: bold 1.75em arial, sans-serif;
@@ -191,7 +191,7 @@ a:hover {text-decoration: underline;}
   
 }
 
-.dish_description{
+.dish_description, .restaurant_description{
   margin: 0em 1em;
   color: #303030;
   font: normal 1em arial, sans-serif;
