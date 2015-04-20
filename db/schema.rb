@@ -11,101 +11,105 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150313092638) do
+ActiveRecord::Schema.define(version: 20150420004436) do
 
   create_table "dish_rating_comments", force: true do |t|
-    t.text     "content",        null: false
-    t.integer  "user_id",        null: false
-    t.integer  "dish_rating_id", null: false
+    t.text     "content"
+    t.integer  "user_id"
+    t.integer  "dish_rating_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "dish_ratings", force: true do |t|
-    t.decimal  "rate_value", null: false
-    t.integer  "user_id",    null: false
-    t.integer  "dish_id",    null: false
+    t.decimal  "rate_value"
+    t.integer  "user_id"
+    t.integer  "dish_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "post_id"
   end
 
+  add_index "dish_ratings", ["post_id"], name: "index_dish_ratings_on_post_id"
+
   create_table "dishes", force: true do |t|
-    t.string   "name",        null: false
-    t.text     "description", null: false
-    t.string   "category",    null: false
-    t.integer  "image_id",    null: false
-    t.integer  "menu_id",     null: false
+    t.string   "name"
+    t.text     "description"
+    t.string   "category"
+    t.integer  "menu_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "images", force: true do |t|
-    t.string   "name",          null: false
+    t.string   "name"
     t.text     "description"
     t.string   "location_path"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "imageable_id"
+    t.string   "imageable_type"
   end
 
+  add_index "images", ["imageable_id"], name: "index_images_on_imageable_id"
+
   create_table "menus", force: true do |t|
-    t.boolean  "is_active",     null: false
-    t.integer  "restaurant_id", null: false
+    t.boolean  "is_active"
+    t.integer  "restaurant_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "post_comments", force: true do |t|
-    t.text     "content",    null: false
-    t.integer  "user_id",    null: false
-    t.integer  "post_id",    null: false
+    t.text     "content"
+    t.integer  "user_id"
+    t.integer  "post_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "posts", force: true do |t|
-    t.string   "title",      null: false
-    t.text     "content",    null: false
-    t.integer  "user_id",    null: false
-    t.integer  "image_id",   null: false
-    t.integer  "rating_id",  null: false
+    t.string   "title"
+    t.text     "content"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "dish_id"
   end
 
   create_table "restaurant_rating_comments", force: true do |t|
-    t.text     "content",              null: false
-    t.integer  "user_id",              null: false
-    t.integer  "restaurant_rating_id", null: false
+    t.text     "content"
+    t.integer  "user_id"
+    t.integer  "restaurant_rating_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "restaurant_ratings", force: true do |t|
-    t.decimal  "rate_value",    null: false
-    t.integer  "user_id",       null: false
-    t.integer  "restaurant_id", null: false
+    t.decimal  "rate_value"
+    t.integer  "user_id"
+    t.integer  "restaurant_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "restaurants", force: true do |t|
-    t.string   "name",        null: false
-    t.text     "description", null: false
-    t.text     "address",     null: false
-    t.string   "location",    null: false
-    t.decimal  "gps_lat",     null: false
-    t.decimal  "gps_lon",     null: false
-    t.string   "category",    null: false
-    t.integer  "image_id",    null: false
+    t.string   "name"
+    t.text     "description"
+    t.text     "address"
+    t.string   "location"
+    t.decimal  "gps_lat"
+    t.decimal  "gps_lon"
+    t.string   "category"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "users", force: true do |t|
-    t.string   "first_name",  null: false
-    t.string   "last_name",   null: false
+    t.string   "first_name"
+    t.string   "last_name"
     t.string   "hashed_pass"
-    t.string   "email",       null: false
+    t.string   "email"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -1,4 +1,5 @@
 class DishesController < ApplicationController
+
   before_action :set_dish, only: [:show, :edit, :update, :destroy]
 
   # GET /dishes
@@ -75,6 +76,6 @@ class DishesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def dish_params
-      params.require(:dish).permit(:name, :description, :category, :image_id, :menu_id)
+      params.require(:dish).permit(:name, :description, :category, :menu_id)
     end
 end

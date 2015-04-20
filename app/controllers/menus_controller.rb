@@ -1,4 +1,7 @@
 class MenusController < ApplicationController
+
+
+  #actions
   before_action :set_menu, only: [:show, :edit, :update, :destroy]
 
   # GET /menus

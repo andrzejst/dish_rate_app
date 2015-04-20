@@ -2,7 +2,6 @@
   <% if @dish.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@dish.errors.count, "error") %> prohibited this dish from being saved:</h2>
-
       <ul>
       <% @dish.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -22,10 +21,6 @@
   <div class="field">
     <%= f.label :category %><br>
     <%= f.text_field :category %>
-  </div>
-  <div class="field">
-    <%= f.label :image_id %><br>
-    <%= f.number_field :image_id %>
   </div>
   <div class="field">
     <%= f.label :menu_id %><br>

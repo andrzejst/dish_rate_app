@@ -6,5 +6,11 @@ class Restaurant < ActiveRecord::Base
   validates :gps_lat, :presence => true
   validates :gps_lon, :presence => true
   validates :category, :presence => true
-  validates :image_id, :presence => true
+
+  
+  #relationships
+  has_many :menus, dependent: :destroy
+  has_many :restaurant_ratings, dependent: :destroy
+  has_many :images, as: :imageable
+  
 end
