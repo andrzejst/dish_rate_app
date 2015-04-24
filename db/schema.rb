@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150420004436) do
+ActiveRecord::Schema.define(version: 20150424110954) do
 
   create_table "dish_rating_comments", force: true do |t|
     t.text     "content"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20150420004436) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "post_id"
+    t.text     "content"
   end
 
   add_index "dish_ratings", ["post_id"], name: "index_dish_ratings_on_post_id"
@@ -36,9 +37,9 @@ ActiveRecord::Schema.define(version: 20150420004436) do
     t.string   "name"
     t.text     "description"
     t.string   "category"
-    t.integer  "menu_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "restaurant_id"
   end
 
   create_table "images", force: true do |t|
@@ -51,14 +52,8 @@ ActiveRecord::Schema.define(version: 20150420004436) do
     t.string   "imageable_type"
   end
 
+  add_index "images", ["imageable_id", "imageable_type"], name: "index_images_on_imageable_id_and_imageable_type"
   add_index "images", ["imageable_id"], name: "index_images_on_imageable_id"
-
-  create_table "menus", force: true do |t|
-    t.boolean  "is_active"
-    t.integer  "restaurant_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
 
   create_table "post_comments", force: true do |t|
     t.text     "content"
@@ -91,6 +86,7 @@ ActiveRecord::Schema.define(version: 20150420004436) do
     t.integer  "restaurant_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "content"
   end
 
   create_table "restaurants", force: true do |t|

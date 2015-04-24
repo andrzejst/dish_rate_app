@@ -9,8 +9,10 @@ class Restaurant < ActiveRecord::Base
 
   
   #relationships
-  has_many :menus, dependent: :destroy
+  #has_many :menus, dependent: :destroy
+  has_many :dishes, dependent: :destroy
   has_many :restaurant_ratings, dependent: :destroy
   has_many :images, as: :imageable
+  
   
 end

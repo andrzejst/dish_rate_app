@@ -4,7 +4,12 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all
+    if Post.find(params[:dish_id]).nil
+      @dish = Dish.find(params[:dish_id])
+      @posts = @dish.posts
+    else
+      @posts = Post.all
+    end
   end
 
   # GET /posts/1
@@ -70,6 +75,6 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:title, :content, :user_id, :image_id, :rating_id)
+      params.require(:post).permit(:title, :content, :user_id, :dish_id)
     end
 end
