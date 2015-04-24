@@ -58,6 +58,7 @@ class DishRatingsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to dish_ratings_url, notice: 'Dish rating was successfully destroyed.' }
       format.json { head :no_content }
+      format.js  #can respond to javascript
     end
   end
 
@@ -69,6 +70,6 @@ class DishRatingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def dish_rating_params
-      params.require(:dish_rating).permit(:rate_value, :user_id, :dish_id)
+      params.require(:dish_rating).permit(:rate_value, :user_id, :dish_id, :content, :post_id, :content)
     end
 end

@@ -1,10 +1,14 @@
 class ImagesController < ApplicationController
   before_action :set_image, only: [:show, :edit, :update, :destroy]
-
+  
+  before_filter :load_imageable, only: [:index, :show, :edit, :update, :destroy]
+  
   # GET /images
   # GET /images.json
   def index
-    @images = Image.all
+    #@imageable =  Restaurant.find(params[:restaurant_id])
+    @images =  @imageable.images
+    #@images = Image.all
   end
 
   # GET /images/1
@@ -14,11 +18,15 @@ class ImagesController < ApplicationController
 
   # GET /images/new
   def new
+    
     @image = Image.new
   end
 
   # GET /images/1/edit
   def edit
+   # @context = context
+   # @picture = context.pictures.find(params[:id])
+    
   end
 
   # POST /images
@@ -69,6 +77,13 @@ class ImagesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def image_params
-      params.require(:image).permit(:name, :description, :location_path)
+      params.require(:image).permit(:name, :description, :location_path, :imageable_id, :imageable_type)
     end
+  
+  private
+  def load_imageable
+    resource, id = request.path.split('/')[1,2]
+    @imageable = resource.singularize.classify.constantize.find(id)
+  end
+
 end

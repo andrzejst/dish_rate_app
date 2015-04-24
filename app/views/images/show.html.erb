@@ -14,6 +14,15 @@
   <strong>Location path:</strong>
   <%= @image.location_path %>
 </p>
+<p>
+  <strong>Imageable_id:</strong>
+  <%= @image.imageable_id %>
+</p>
+<p>
+  <strong>Imageable_type:</strong>
+  <%= @image.imageable_type %>
+</p>
+
 
 <%= link_to 'Edit', edit_image_path(@image) %> |
 <%= link_to 'Back', images_path %>

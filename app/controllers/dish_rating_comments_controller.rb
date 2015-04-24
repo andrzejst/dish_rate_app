@@ -58,6 +58,7 @@ class DishRatingCommentsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to dish_rating_comments_url, notice: 'Dish rating comment was successfully destroyed.' }
       format.json { head :no_content }
+      format.js  #can respond to javascript
     end
   end
 

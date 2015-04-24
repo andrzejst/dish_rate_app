@@ -1,35 +1,39 @@
-<h1 class="left">Listing dishes</h1>
+<div style="text-align: left; padding: 1em;">
+<h1 class="">Listing dishes</h1>
 
-<table style="border: 2px solid blue;">
-  <thead>
-    <tr style="border: 2px solid green; padding: 2em;">
-      <th>Name</th>
-      <th>Description</th>
-      <th>Category</th>
-
-      <th>Menu</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-</table>
-<br/>
-
-<% @dishes.each do |dish| %>
+<div class="clear_both" style="text-align: left; border: 1px solid black;">
+  <% @dishes.each do |dish| %>
     <%= div_for dish do %> 
-        <span class="dish_name left"><%= dish.name %></span>
-        <span class="dish_description left"><%= dish.description %></span>
-        <span class="dish_category left"><%= dish.category %></span>
-
-        <div class="actions">
-        <span><%= link_to 'View', dish %></span>
-        <span><%= link_to 'Edit', edit_dish_path(dish) %></span>
-        <span><%= link_to 'Destroy', dish, method: :delete, data: { confirm: 'Are you sure?' },  remote: true %></span> 
-        </div>
+       <table style="width: 100%;">
+          <tr>
+            <td class="" style="margin-right: 1em; width: 20%;"> 
+              <% if dish.images.count > 0 %>
+                <% dish.images.each do |image| %>
+                  <% i = image.name %> <% l = image.location_path%>
+                  <% path =  l.to_s() + i.to_s() %>
+              <%= link_to (image_tag path, height: "", width: "250", alt: dish.name, title: dish.name), dish %>
+                <%end%>
+              <%end%>
+            </td>
+            <td class="dish_name" style="width: 25%;"><%= link_to dish.name, dish %></td>
+            <td class="dish_category " style="width: 10%;"><%= dish.category %></td>
+          <td class="dish_description " style="width: 35%;"><%= dish.description %></td>
+          
+        <td>
+          <div class="actions">
+          <span><%= link_to 'View', dish %></span>
+          <span><%= link_to 'Edit', edit_dish_path(dish) %></span>
+          <!--<span><%= link_to 'Destroy', dish, method: :delete, data: { confirm: 'Are you sure?' },  remote: true %></span> -->
+          </div>
+        </td>
+      </tr>
+    </table>
+                        
 
     <% end %>
-    <% end %>
-
-<hr/>
+  <% end %>
+</div>
 <br/>
 
 <%= link_to 'New Dish', new_dish_path %>
+</div>

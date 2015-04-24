@@ -1,14 +1,24 @@
+<div style="width 100%; border: 1px solid black; text-align: left; margin: 1em; padding: 1em;">
+<h1>Showing restaurant details</h1>
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @restaurant.name %>
-</p>
+<div id="left_column" style="width: 40%; float: left; border: 0px solid red; margin: 0;">
 
-<p>
-  <strong>Description:</strong>
-  <%= @restaurant.description %>
-</p>
+  <div class="restaurant_name" >
+  <%= @restaurant.name %>
+  </div>
+
+  <div class="" style="margin-right: 1em; width: 100%;"> 
+     <% if @restaurant.images.count > 0 %>
+          <% @restaurant.images.each do |image| %>
+          <% i = image.name %> <% l = image.location_path%>
+          <% path =  l.to_s() + i.to_s() %>
+          <%= image_tag path, height: "", width: "100%", alt: @restaurant.name, title: @restaurant.name %>
+        <% end %>
+    <%end%>    
+  </div>
+
+  <div class="restaurant_description"><%= @restaurant.description %></div>
 
 <p>
   <strong>Address:</strong>
@@ -38,3 +48,33 @@
 
 <%= link_to 'Edit', edit_restaurant_path(@restaurant) %> |
 <%= link_to 'Back', restaurants_path %>
+  </div>
+  
+  <div id="center_column" style="width: 30%; border: 0px solid blue; float: left; margin: 0;">
+    <div class="restaurant_name">Menu</div>
+    <% if @restaurant.dishes.count > 0 %>
+    <ul class="dish_name">
+      <% @restaurant.dishes.each do |dish| %>
+          <li><%= link_to dish.name, dish %></li>
+        <% end %>
+        </ul>
+    <%end%>    
+  </div>
+  
+  <div id="right_column" style="width: 25%; border: 0px solid green; float: right; margin: 0;">
+    <div class="restaurant_name">Ratings</div>
+      <% if @restaurant.restaurant_ratings.count > 0 %>
+          <% @restaurant.restaurant_ratings.each do |restaurant_rating| %>
+            <%= div_for restaurant_rating, style: "background-color: #FFDBDB;" do %> 
+                <p class=""><%= restaurant_rating.content%></p>
+                <p class=""><%= restaurant_rating.rate_value%></p>
+                <p class="" style="text-align:right;"><%= link_to "Add comment",new_restaurant_rating_comment_path %></p>
+                <%end%>
+          <%end%>
+    <%else%>
+      <p>No ratings ...</p>
+    <%end%>
+    <p class="" style="text-align:right;"><%= link_to "Add rating",new_restaurant_rating_path %></p>
+    </div>
+  <div class="clear_both"></div>
+</div>

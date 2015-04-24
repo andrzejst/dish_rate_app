@@ -1,41 +1,60 @@
+<div style="text-align: left; padding: 1em;">
 <h1>Listing restaurants</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Address</th>
-      <th>Location</th>
-      <th>Gps lat</th>
-      <th>Gps lon</th>
-      <th>Category</th>
-      <th>Image</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-  </table>
-<br/>
-  
-
-
+<div class="clear_both" style="text-align: left; border: 1px solid black;">
     <% @restaurants.each do |restaurant| %>
-<%= div_for restaurant do %> 
-        <span class="restaurant_name left"><%= restaurant.name %></span>
-        <span class="restaurant_description left"><%= restaurant.description %></span>
-        <span class="left"><%= restaurant.address %></span>
-        <span class="left"><%= restaurant.location %></span>
-        <span class="left"><%= restaurant.gps_lat %></span>
-        <span class="left"><%= restaurant.gps_lon %></span>
-        <span class="left"><%= restaurant.category %></span>
- <div class="actions">
-        <span><%= link_to 'Show', restaurant %></span>
-        <span><%= link_to 'Edit', edit_restaurant_path(restaurant) %></span>
-        <span><%= link_to 'Destroy', restaurant, method: :delete, data: { confirm: 'Are you sure?' } %></span>
-</div>
-    <% end %>
-<% end %>
+  <%= div_for restaurant, style: "background-color: #FFDBDB;" do %> 
+  <!-- <% i = restaurant.images.first %> -->
 
-<br>
+
+
+
+  
+        <table style="width: 100%;">
+          <tr>
+            <td class="" style="margin-right: 1em; width: 15%;"> 
+              <% if restaurant.images.count > 0 %>
+              <% restaurant.images.each do |image| %>
+              <% i = image.name %> <% l = image.location_path%>
+              <% path =  l.to_s() + i.to_s() %>
+              
+              <%= link_to (image_tag path, width: "300", alt: restaurant.name, title: restaurant.name), restaurant %>
+            
+                <% end %>
+            <%end%>
+            
+            </td>
+            <td class="restaurant_name" style="width: 15%;"><%= link_to restaurant.name, restaurant %></td>
+            <td class="" style="width: 15%;"><%= restaurant.address %></td>
+            <td class="restaurant_description" style="width: ;"><%= restaurant.description %> 
+            <div class="actions" style="text-align:right;">
+              <span><%= link_to 'View', restaurant %></span>
+              <span><%= link_to 'Edit', edit_restaurant_path(restaurant) %></span>
+              <!-- <span><%= link_to 'Destroy', restaurant, method: :delete, data: { confirm: 'Are you sure?' } %></span> -->
+            </div>
+            </td>
+              
+      <!--
+      
+              <span class=""><%= restaurant.location %></span>
+              <span class=""><%= restaurant.gps_lat %></span>
+              <span class=""><%= restaurant.gps_lon %></span>
+              <span class=""><%= restaurant.category %></span>
+      
+      <td>
+         <div class="actions" style="text-align:right;">
+              <span><%= link_to 'Show', restaurant %></span>
+              <span><%= link_to 'Edit', edit_restaurant_path(restaurant) %></span>
+              <span><%= link_to 'Destroy', restaurant, method: :delete, data: { confirm: 'Are you sure?' } %></span>
+        </div>
+        </td>
+            -->
+    </tr>
+    </table>
+    <% end %>
+  <% end %>
+</div>
+<br/>
 
 <%= link_to 'New Restaurant', new_restaurant_path %>
+</div>
