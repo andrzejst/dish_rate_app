@@ -1,6 +1,7 @@
-<h1>Listing posts</h1>
-
-<table style="border: 2px solid blue;">
+<div class="left clear_both">
+<h1 class="">Listing posts</h1>
+<!--
+<table class="clear_both" style="border: 2px solid blue;">
   <thead>
     <tr>
       <th>Title</th>
@@ -11,21 +12,33 @@
     </tr>
   </thead>
 </table>
-
+-->
+  
+<div class="clear_both" style="text-align: left; border: 1px solid black;">
     <% @posts.each do |post| %>
-      <%= div_for post do %> 
-        <td><%= post.title %></td>
-        <td><%= post.content %></td>
-        <td><%= post.user_id %></td>
-<div class="actions">
-        <td><%= link_to 'Show', post %></td>
-        <td><%= link_to 'Edit', edit_post_path(post) %></td>
-        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' }, remote: true %></td>
-</div>    
-<% end %>
+      <%= div_for post do %>
+    <table style="width: 100%;">
+          <tr>
+        <td class="post_title "><%= post.title %></td>
+        <td class="post_content "><%= post.content %></td>
+        <td class=""><%= post.user_id %></td>
+        <td class=""><%= post.dish_id %></td>
+        <td>
+            <div class="actions">
+                <span><%= link_to 'Show', post %></span>
+                <span><%= link_to 'Edit', edit_post_path(post) %></span>
+                <span><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' }, remote: true %></span>
+        </div>
+                        
+        </td>
+      </tr>
+    </table>
     <% end %>
+  <% end %>
+</div>
 
 
 <br>
 
 <%= link_to 'New Post', new_post_path %>
+</div>

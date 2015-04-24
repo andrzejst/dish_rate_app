@@ -58,6 +58,7 @@ class RestaurantRatingCommentsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to restaurant_rating_comments_url, notice: 'Restaurant rating comment was successfully destroyed.' }
       format.json { head :no_content }
+      format.js  #can respond to javascript
     end
   end
 

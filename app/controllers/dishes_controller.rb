@@ -71,11 +71,17 @@ class DishesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_dish
-      @dish = Dish.find(params[:id])
+      #@dish = Dish.find(params[:id])
+      if params[:id].nil?
+        @dish = Dish.first
+      else
+         @dish = Dish.find(params[:id])
+      end
+      
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def dish_params
-      params.require(:dish).permit(:name, :description, :category, :menu_id)
+      params.require(:dish).permit(:name, :description, :category, :restaurant_id)
     end
 end

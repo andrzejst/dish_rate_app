@@ -1,10 +1,46 @@
 Rails.application.routes.draw do
-  root 'static_pages#home'
+  #root 'static_pages#home'
+  #root :dishes#show.Dish.first
+  root to: 'dishes#show' #show details of a dish on the root
+
   get 'static_pages/home'
-  get 'static_pages/help'  
+  get 'static_pages/help'
   get 'static_pages/restaurant'
 
   resources :users
+
+  # dishes, images, restaurant_ratins are nested under restaurants
+  # restaurant_rating_comments are nested under restaurant_ratings
+  resources :restaurants do
+    resources :dishes
+    resources :images
+    resources :restaurant_ratings do 
+      resources :restaurant_rating_comments
+    end
+  end
+
+  # posts, images, dish_ratings are nested under dishes
+  # post_
+  resources :dishes do
+    resources :posts do
+      resources :post_comments
+    end
+    resources :images
+    resources :dish_ratings do
+      resources :dish_rating_comments
+    end
+  end
+
+  resources :posts do
+    resources :images
+    resources :post_comments
+  end
+
+  # resources :menus
+
+  resources :restaurant_ratings do
+    resources :restaurant_rating_comments
+  end
 
   resources :post_comments
 
@@ -12,19 +48,9 @@ Rails.application.routes.draw do
 
   resources :restaurant_rating_comments
 
-  resources :restaurant_ratings
-
   resources :dish_ratings
 
-  resources :posts
-
   resources :images
-
-  resources :dishes
-
-  resources :menus
-
-  resources :restaurants
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

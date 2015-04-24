@@ -58,6 +58,7 @@ class PostCommentsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to post_comments_url, notice: 'Post comment was successfully destroyed.' }
       format.json { head :no_content }
+      format.js  #can respond to javascript
     end
   end
 

@@ -1,145 +1,92 @@
-<!-- statis temp code-->
-<h1> show dish</h1>
-<div class="" style="border: 0px solid red; text-align: left;">
-  <div style="border: 0px solid blue"><!-- dish details-->
-      <div id="left_column" class="left clear_left" style="">
-                 <div>
-                  <span id="title" class="left">Dish of the week</span> 
-                </div>
-      <img class="" src="images/se_beef.jpg" width="100%" height="" title="" alt=""/>
-  </div>
-    <div id="right_column" class="right clear_right" style="">
-
-                <div>
-                  <span id="dish_name" class="">Hot garlic beef</span>
-                </div>
-                <div>
-                  <span id="dish_rating" class="">Dish rating: &nbsp;<img class="" src="images/rating_5.PNG" width="" height="" title="" alt=""/></span>
-                </div>
-                <div id="description" class="clear_both description">              
-                  This is a delicious stir fry with tender strips of beef, sweet fresh veggies and a spicy garlic sauce. Marinated before cooking to add an extra layer of flavour.
-          </div>
-
-
-    </div>
-  <div class="clear_both">&nbsp;</div>
-  </div> <!-- dish details -->
-  <hr/>
-<div style="border: 0px solid green"><!-- dish posts-->
-      <div id="left_column" class="left clear_left" style="">
-        <img class="" src="images/beef_post.jpg" width="100%" height="" title="" alt=""/>
-    </div>
-      <div id="right_column" class="right clear_right" style="">
-            <div>
-                <div class="dish_rating">
-                  <span id="" class="left">Derek</span>                  
-                  <span id="" class="right">10/03/2015 19:14</span>
-                </div>
-                <div  class="clear_both dish_rating" id="" >Rating: &nbsp;<img class="" src="images/rating_5.PNG" width="" height="20px" title="" alt=""/></div>
-                <div class="clear_both post">              
-                  This is the best beef dish in the menu. Meat is very tender and spicy.
-                  </div>
-              <div class="clear_both right">                   
-                  <a href="" onclick="display_comment_form()">Add comment</a>
-                </div> <!-- add comment --> 
-                <!-- add new comment div-->  
-                <div class="clear_both" id="new_comment" style="">
-                      <form action="">
-                            Comment:<br>
-                            <textarea name="message" rows="10" cols="30">
-
-                            </textarea>
-
-                            <br><br>
-                            <input class="" type="submit" value="Save">
-                      </form>
-                    </div>
-                
-                
-              </div> <!-- post end -->
-        <!-- existing comment(s) here-->
-        <div class="clear_both" style="border: 1px solid grey; padding: 1em; margin-top: 2em; margin-left: 1em; background-color:#FFE6E6;">
-              <div class="dish_rating">
-                  <span class="left">Tom</span>                  
-                  <span class="right">11/03/2015 18:46</span>
-                </div>
-                <div class="clear_both comment" >              
-                   Agree. very nice dish...
-                 </div>
+<div style="width 100%; border: 1px solid black; text-align: left; margin: 1em; padding: 1em;">
+  <h1> Showing dish details</h1>
+  <p id="notice"><%= notice %></p>
+  <div style="border: 3px solid green;">
+    <div id="left_column" style="width: 50%; float: left; border: 1px solid red; margin: 0;">
+        <div class="dish_name">
+          <%= @dish.name %>
+          <span class="right" style="font-size: 0.75em;">Restaurant: <%= link_to @dish.restaurant.name, @dish.restaurant %></span>
         </div>
-        <div class="clear_both" style="border: 1px solid grey; padding: 1em; margin-top: 2em; margin-left: 1em; background-color:#FFE6E6;">
-              <div class="dish_rating">
-                  <span class="left">Mark</span>                  
-                  <span class="right">12/03/2015 20:21</span>
-                </div>
-                <div class="clear_both comment" >              
-                   I didn't like it...
-                 </div>
+        <div class="" style="margin-right: 1em; width: 100%;"> 
+          <% if @dish.images.count > 0 %>
+                <% @dish.images.each do |image| %>
+                <% i = image.name %> <% l = image.location_path%>
+                <% path =  l.to_s() + i.to_s() %>
+                <%= image_tag path, height: "", width: "100%", alt: @dish.name, title: @dish.name %>
+              <% end %>
+          <%end%>
         </div>
-        
-        
-      </div> <!-- right column end --> 
-  
-    <div class="clear_both">&nbsp;</div>
-  
-</div> <!-- dish posts -->  
-  <hr/>
-<div class="clear_both right" style="margin: 5px 6% 5px 2%;  padding: 1%;  border: 0px solid blue;">
-  
-     <a href="">Add image</a>
-  
-  
-</div> <!-- add image -->
-  
-  <!-- add new post div-->  
-                <div class="clear_both right" id="new_post" style="">
-                      <form action="">
-                            Content:<br>
-                            <textarea name="message" rows="10" cols="30">
-                            </textarea>
-                            <br/>
-                            Picture:<input type="text" name="pic"><input class="" type="submit" value="browse">
-                            <br/><br/>
-                            
-                            <input class="" type="submit" value="Save">
-                            <input class="" type="submit" value="Cancel">
-                      </form>
-                    </div>
-  
-  
+        <%= link_to 'Edit', edit_dish_path(@dish) %> |
+  <%= link_to 'Back', dishes_path %>
+    </div>
+    <div id="right_column" style="width: 45%; border: 1px solid blue; float: left; margin: 0;">
+        <div> <strong>Category:</strong> <%= @dish.category %> </div>
+        <div class="right"> <strong>Rating:</strong> 5 stars </div>
+        <div class="dish_name">Description:</div>
+        <div class="dish_description clear_right"><%= @dish.description %></div>  
+    </div>
+    <div id="right_column" style="width: 25%; border: 1px solid green; float: right; margin: 0;">
+    <div class="restaurant_name">Ratings</div>
+      <% if @dish.dish_ratings.count > 0 %>
+          <% @dish.dish_ratings.each do |dish_ratings| %>
+            <%= div_for dish_ratings, style: "background-color: #FFDBDB;" do %> 
+                <p class=""><%= dish_ratings.content%></p>
+                <p class=""><%= dish_ratings.rate_value%></p>
+                <p class="" style="text-align:right;"><%= link_to "Add comment",new_post_comment_path %></p>
+                <%end%>
+          <%end%>
+    <%else%>
+      <p>No ratings ...</p>
+      <p class="" style="text-align:right;"><%= link_to "Add rating",new_dish_rating_path %></p>
+    <%end%>
+      
+      <p class="right">Add rating</p>
+    </div>
     
+    
+    
+ </div>
+  <div class="post_list clear_both" style="width 100%; border: 1px solid red; text-align: left; margin: 1em; padding: 1em;">
+    List of post
+    </div>
+
+
+    <div id="right_column" style="width: 20%; border: 1px solid green; float: right; margin: 0;">
+      <div class="restaurant_name"></div>
+
+        <p>Add rating</p>
+      </div>
+
+
+
+    <div class="clear_both"></div>
+
+
+
+
+  <div class="" style="border: 1px solid red; text-align: left;">
+  </div> <!-- add image -->
+
+    <!-- add new post div-->  
+                  <div class="clear_both right" id="new_post" style="">
+                        <form action="">
+                              Content:<br>
+                              <textarea name="message" rows="10" cols="30">
+                              </textarea>
+                              <br/>
+                              Picture:<input type="text" name="pic"><input class="" type="submit" value="browse">
+                              <br/><br/>
+
+                              <input class="" type="submit" value="Save">
+                              <input class="" type="submit" value="Cancel">
+                        </form>
+                      </div>
+
+
+
+
+
+
+
 
 </div>
-
-
-
-
-
-
-
-<!-- original scaffold code -->
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @dish.name %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @dish.description %>
-</p>
-
-<p>
-  <strong>Category:</strong>
-  <%= @dish.category %>
-</p>
-
-
-<p>
-  <strong>Menu:</strong>
-  <%= @dish.menu_id %>
-</p>
-
-<%= link_to 'Edit', edit_dish_path(@dish) %> |
-<%= link_to 'Back', dishes_path %>

@@ -1,4 +1,6 @@
+<p>START</p>
 <%= form_for(@post) do |f| %>
+<p>START FORM </p>
   <% if @post.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
@@ -10,22 +12,28 @@
       </ul>
     </div>
   <% end %>
-
+<div>Before fields</div>
   <div class="field">
-    <%= f.label :title %><br>
+    <strong><%= f.label :title %>:</strong>
     <%= f.text_field :title %>
   </div>
   <div class="field">
-    <%= f.label :content %><br>
+    <strong><%= f.label :content %></strong>
     <%= f.text_area :content %>
   </div>
   <div class="field">
-    <%= f.label :user_id %><br>
+    <strong><%= f.label :user_id %></strong>
     <%= f.number_field :user_id %>
   </div>
+ <div class="field">
+   <strong><%= f.label :dish_id %></strong>
+   <%= f.number_field :dish_id %>
+  </div>
+<div>After fields</div>
 
 
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
+<p>END</p>

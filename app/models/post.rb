@@ -9,7 +9,7 @@ class Post < ActiveRecord::Base
   belongs_to :user
   has_many :post_comments, dependent: :destroy
   has_one :dish_rating, dependent: :destroy
-   has_many :images, as: :imageable
+  has_many :images, as: :imageable
   
   
 end
