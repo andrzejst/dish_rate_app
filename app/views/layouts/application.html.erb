@@ -16,11 +16,20 @@
               </div>
               <div class="right">
                 <ul class="">
-                  <li><a href="">Andrzej</a></li>
-                  <li><a href="">Sign Up</a></li>
-                  <li><a href="">Sign In</a></li>
-                  <li><%= link_to 'Help'%></li>
+                  <% if user_signed_in? %>
+                  Logged in as <strong><%= current_user.email %></strong>.
+                  <li><%= link_to 'Edit profile', edit_user_registration_path %> |</li>
+                  <li> <%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+                  <% else %>
+                  <li><%= link_to "Sign up", new_user_registration_path %> |</li>
+                  <li><%= link_to "Login", new_user_session_path %></li>
+                  <li><%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %></li>
+                   <% end %>
                 </ul>
+                <% flash.each do |name, msg| %>
+                <%= content_tag :div, msg, id: "flash_#{name}" %>
+                <% end %>
+                
               </div>
           </div>
 

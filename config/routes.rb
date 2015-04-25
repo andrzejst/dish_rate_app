@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+   devise_for :users, path_names: {sign_in: "login", sign_out: "logout"}, controllers: {omniauth_callbacks: "omniauth_callbacks"}
   #root 'static_pages#home'
   #root :dishes#show.Dish.first
   root to: 'dishes#show' #show details of a dish on the root
@@ -6,8 +7,6 @@ Rails.application.routes.draw do
   get 'static_pages/home'
   get 'static_pages/help'
   get 'static_pages/restaurant'
-
-  resources :users
 
   # dishes, images, restaurant_ratins are nested under restaurants
   # restaurant_rating_comments are nested under restaurant_ratings
