@@ -63,18 +63,20 @@
   
   <div id="right_column" style="width: 25%; border: 0px solid green; float: right; margin: 0;">
     <div class="restaurant_name">Ratings</div>
+
+    
       <% if @restaurant.restaurant_ratings.count > 0 %>
           <% @restaurant.restaurant_ratings.each do |restaurant_rating| %>
             <%= div_for restaurant_rating, style: "background-color: #FFDBDB;" do %> 
                 <p class=""><%= restaurant_rating.content%></p>
                 <p class=""><%= restaurant_rating.rate_value%></p>
-                <p class="" style="text-align:right;"><%= link_to "Add comment",new_restaurant_rating_comment_path %></p>
+                <p class="" style="text-align:right;"><%= link_to "Add comment",new_restaurant_rating_restaurant_rating_comment_path(@restaurant) %></p>
                 <%end%>
           <%end%>
     <%else%>
       <p>No ratings ...</p>
     <%end%>
-    <p class="" style="text-align:right;"><%= link_to "Add rating",new_restaurant_rating_path %></p>
+    <p class="" style="text-align:right;"><%= link_to "Add rating",new_restaurant_restaurant_rating_path(@restaurant.id) %></p>
     </div>
   <div class="clear_both"></div>
 </div>

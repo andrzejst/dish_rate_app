@@ -1,7 +1,7 @@
 class ImagesController < ApplicationController
   before_action :set_image, only: [:show, :edit, :update, :destroy]
   
-  before_filter :load_imageable, only: [:index, :show, :edit, :update, :destroy]
+  before_filter :load_imageable, only: [:index, :show, :edit, :update, :destroy, :new, :create]
   
   # GET /images
   # GET /images.json
@@ -18,8 +18,9 @@ class ImagesController < ApplicationController
 
   # GET /images/new
   def new
+    @image = @imageable.images.new
     
-    @image = Image.new
+    #@image = Image.new
   end
 
   # GET /images/1/edit
@@ -32,11 +33,13 @@ class ImagesController < ApplicationController
   # POST /images
   # POST /images.json
   def create
-    @image = Image.new(image_params)
+    @image = @imageable.images.new(params[:image])
+    
+    #@image = Image.new(image_params)
 
     respond_to do |format|
       if @image.save
-        format.html { redirect_to @image, notice: 'Image was successfully created.' }
+        format.html { redirect_to [@imageable, :images], notice: 'Image was successfully created.' }
         format.json { render :show, status: :created, location: @image }
       else
         format.html { render :new }
@@ -77,7 +80,7 @@ class ImagesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def image_params
-      params.require(:image).permit(:name, :description, :location_path, :imageable_id, :imageable_type)
+      params.require(:image).permit(:name, :description, :location_path, :imageable_id, :imageable_type, :restaurant_id, :image, :dish_id, :post_id, :commit, :img)
     end
   
   private

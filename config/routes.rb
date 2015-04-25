@@ -18,11 +18,15 @@ Rails.application.routes.draw do
       resources :restaurant_rating_comments
     end
   end
-
+resources :restaurant_ratings do 
+      resources :restaurant_rating_comments
+    end
+  
   # posts, images, dish_ratings are nested under dishes
   # post_
   resources :dishes do
     resources :posts do
+      resources :images
       resources :post_comments
     end
     resources :images
@@ -46,7 +50,7 @@ Rails.application.routes.draw do
 
   resources :dish_rating_comments
 
-  resources :restaurant_rating_comments
+  #resources :restaurant_rating_comments
 
   resources :dish_ratings
 

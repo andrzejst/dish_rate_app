@@ -1,3 +1,4 @@
+<div class="" style="text-align: left;">
 <h1>Listing dish_ratings</h1>
 
 <table>
@@ -16,6 +17,7 @@
         <td><%= dish_rating.rate_value %></td>
         <td><%= dish_rating.user_id %></td>
         <td><%= dish_rating.dish_id %></td>
+        
         <td><%= link_to 'Show', dish_rating %></td>
         <td><%= link_to 'Edit', edit_dish_rating_path(dish_rating) %></td>
         <td><%= link_to 'Destroy', dish_rating, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -27,3 +29,4 @@
 <br>
 
 <%= link_to 'New Dish rating', new_dish_rating_path %>
+</div>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150424110954) do
+ActiveRecord::Schema.define(version: 20150425011838) do
 
   create_table "dish_rating_comments", force: true do |t|
     t.text     "content"
@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(version: 20150424110954) do
     t.datetime "updated_at"
     t.integer  "imageable_id"
     t.string   "imageable_type"
+    t.string   "img"
   end
 
   add_index "images", ["imageable_id", "imageable_type"], name: "index_images_on_imageable_id_and_imageable_type"

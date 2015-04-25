@@ -4,25 +4,34 @@
 <div class="clear_both" style="text-align: left; border: 1px solid black;">
     <% @restaurant_ratings.each do |restaurant_rating| %>
   <%= div_for restaurant_rating, style: "background-color: #FFDBDB;" do %> 
-  <table>
+  <table style="width: 100%; border: 1px solid black">
       <tr>
         <td><%= restaurant_rating.user_id %></td>
-        <td><%= restaurant_rating.rate_value %></td>
-        
+        <td><%= restaurant_rating.rate_value %></td>        
         <td><%= restaurant_rating.restaurant_id %></td>
-        </tr>
-    <tr class="actions" style="text-align:right;">
-        <td><%= link_to 'Show', restaurant_rating %></td>
-        <td><%= link_to 'Edit', edit_restaurant_rating_path(restaurant_rating) %></td>
-        <td><%= link_to 'Destroy', restaurant_rating, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+    <tr>
+      <td colspan="2"><%= restaurant_rating.content %></td>
+      <td>
+          <div class="actions">       
+          <span><%= link_to 'Show', restaurant_rating %></span>
+            <span><%= link_to 'Edit', edit_restaurant_restaurant_rating_path(@restaurant, restaurant_rating) %></span>
+            <span><%= link_to 'Destroy', [@restaurant, restaurant_rating], method: :delete, data: { confirm: 'Are you sure?' } %></span>
+         </div>
+      </td>
+    </tr>
+    <tr>
+       <td colspan="3" style="text-align:right;">
+          <span class="" ><%= link_to "Add comment",new_restaurant_rating_comment_path %></span>
+        </td>
       </tr>
   </table>
     <% end %>
   <% end %>
  </div>
 
-
-<br>
-
-<%= link_to 'New Restaurant rating', new_restaurant_rating_path %>
+<br/>
+  <%= link_to 'New Restaurant rating', new_restaurant_restaurant_rating_path %>
+<br/>
+  <br/>
 </div>

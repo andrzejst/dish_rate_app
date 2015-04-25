@@ -33,6 +33,8 @@ gem 'formtastic', '~> 1.2.0'
 #bcrypt
 gem 'bcrypt-ruby'
 
+# carrierwawe
+gem 'carrierwave'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
